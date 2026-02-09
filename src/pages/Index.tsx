@@ -1,6 +1,7 @@
 import { Phone, MessageCircle, Menu, X, Mail, Instagram, Facebook } from "lucide-react";
 import { useState, useEffect } from "react";
 import denkLogo from "@/assets/denk-logo.jpg";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const WHATSAPP_URL = "https://wa.me/551145135722?text=Olá! Gostaria de mais informações.";
 const INSTAGRAM_URL = "https://www.instagram.com/dental.denk/";
@@ -118,23 +119,29 @@ const HeroSection = () => (
   <section id="inicio" className="relative bg-[#0f2033] min-h-[80vh] flex items-center pt-20">
     <div className="absolute inset-0 bg-gradient-to-br from-[#0f2033] via-[#132a42] to-[#0a1724] opacity-90" />
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
-      <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        Se o assunto é dente,{" "}
-        <span className="text-[#4da3ff]">Denk!</span>
-      </h1>
-      <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Referência em produtos odontológicos no ABC paulista desde 1997. 
-        Tradição, qualidade e compromisso com o profissional da odontologia.
-      </p>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-10 py-5 rounded-xl text-lg uppercase tracking-wider shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200"
-      >
-        <MessageCircle className="w-6 h-6" />
-        Fale pelo WhatsApp
-      </a>
+      <AnimatedSection>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Se o assunto é dente,{" "}
+          <span className="text-[#4da3ff]">Denk!</span>
+        </h1>
+      </AnimatedSection>
+      <AnimatedSection delay="200ms">
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Referência em produtos odontológicos no ABC paulista desde 1997. 
+          Tradição, qualidade e compromisso com o profissional da odontologia.
+        </p>
+      </AnimatedSection>
+      <AnimatedSection delay="400ms">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-10 py-5 rounded-xl text-lg uppercase tracking-wider shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200"
+        >
+          <MessageCircle className="w-6 h-6" />
+          Fale pelo WhatsApp
+        </a>
+      </AnimatedSection>
     </div>
   </section>
 );
@@ -165,18 +172,21 @@ const timelineItems = [
 const HistorySection = () => (
   <section id="sobre" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        Nossa História
-      </h2>
-      <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
-        Conheça a trajetória da Dental Denk e como nos tornamos referência na região.
-      </p>
+      <AnimatedSection>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Nossa História
+        </h2>
+        <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
+          Conheça a trajetória da Dental Denk e como nos tornamos referência na região.
+        </p>
+      </AnimatedSection>
 
       <div className="relative">
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2" />
         <div className="space-y-12 md:space-y-0">
           {timelineItems.map((item, index) => (
             <div key={index} className={`md:flex items-center mb-12 ${index % 2 === 0 ? "" : "md:flex-row-reverse"}`}>
+            <AnimatedSection delay={`${index * 150}ms`}>
               <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
                 <div className="bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow">
                   <span className="inline-block bg-primary text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-full mb-3">
@@ -188,6 +198,7 @@ const HistorySection = () => (
               </div>
               <div className="hidden md:flex items-center justify-center w-5 h-5 bg-primary rounded-full border-4 border-secondary absolute left-1/2 -translate-x-1/2" />
               <div className="md:w-1/2" />
+            </AnimatedSection>
             </div>
           ))}
         </div>
@@ -222,23 +233,24 @@ const differentials = [
 const DifferentialsSection = () => (
   <section id="diferenciais" className="py-20 md:py-28 bg-background">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        Nossos Diferenciais
-      </h2>
-      <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
-        O que nos torna a escolha certa para o profissional da odontologia.
-      </p>
+      <AnimatedSection>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Nossos Diferenciais
+        </h2>
+        <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
+          O que nos torna a escolha certa para o profissional da odontologia.
+        </p>
+      </AnimatedSection>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {differentials.map((item, index) => (
-          <div
-            key={index}
-            className="bg-card rounded-xl p-8 text-center shadow-md border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-          >
-            <span className="text-5xl mb-5 block">{item.icon}</span>
-            <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
-          </div>
+          <AnimatedSection key={index} delay={`${index * 100}ms`}>
+            <div className="bg-card rounded-xl p-8 text-center shadow-md border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <span className="text-5xl mb-5 block">{item.icon}</span>
+              <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+            </div>
+          </AnimatedSection>
         ))}
       </div>
     </div>
@@ -248,12 +260,14 @@ const DifferentialsSection = () => (
 const ContactSection = () => (
   <section id="contato" className="py-20 md:py-28 bg-secondary">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-        Entre em Contato
-      </h2>
-      <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
-        Estamos prontos para atendê-lo. Venha nos visitar ou entre em contato!
-      </p>
+      <AnimatedSection>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Entre em Contato
+        </h2>
+        <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
+          Estamos prontos para atendê-lo. Venha nos visitar ou entre em contato!
+        </p>
+      </AnimatedSection>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Info */}
