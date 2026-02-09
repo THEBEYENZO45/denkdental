@@ -97,14 +97,14 @@ const Header = () => {
 };
 
 const HeroSection = () => (
-  <section id="inicio" className="relative bg-primary min-h-[80vh] flex items-center pt-20">
-    <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[hsl(213,55%,18%)] opacity-90" />
+  <section id="inicio" className="relative bg-[#0f2033] min-h-[80vh] flex items-center pt-20">
+    <div className="absolute inset-0 bg-gradient-to-br from-[#0f2033] via-[#132a42] to-[#0a1724] opacity-90" />
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
-      <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-primary-foreground mb-6 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         Se o assunto é dente,{" "}
-        <span className="text-accent">Denk!</span>
+        <span className="text-[#4da3ff]">Denk!</span>
       </h1>
-      <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+      <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
         Referência em produtos odontológicos no ABC paulista desde 1997. 
         Tradição, qualidade e compromisso com o profissional da odontologia.
       </p>
