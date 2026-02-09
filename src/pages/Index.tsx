@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import denkLogo from "@/assets/denk-logo.jpg";
 import AnimatedSection from "@/components/AnimatedSection";
 
-const WHATSAPP_URL = "https://wa.me/551145135722?text=Olá! Gostaria de mais informações.";
+const WHATSAPP_URL = "https://wa.me/551145135722?text=Olá! Encontrei vocês pelo site, gostaria de mais informações.";
 const INSTAGRAM_URL = "https://www.instagram.com/dental.denk/";
 const FACEBOOK_URL = "https://www.facebook.com/dental.denk/?locale=pt_BR";
 
