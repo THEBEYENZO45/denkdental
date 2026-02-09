@@ -115,33 +115,42 @@ const Header = () => {
   );
 };
 
-const HeroSection = () => (
-  <section id="inicio" className="relative bg-[#0f2033] min-h-[80vh] flex items-center pt-20">
-    <div className="absolute inset-0 bg-gradient-to-br from-[#0f2033] via-[#132a42] to-[#0a1724] opacity-90" />
-    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
+const HistorySection = () => (
+  <section id="sobre" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedSection>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-          Se o assunto é dente,{" "}
-          <span className="text-[#4da3ff]">Denk!</span>
-        </h1>
-      </AnimatedSection>
-      <AnimatedSection delay="200ms">
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Referência em produtos odontológicos no ABC paulista desde 1997. 
-          Tradição, qualidade e compromisso com o profissional da odontologia.
+        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Nossa História
+        </h2>
+        <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
+          Conheça a trajetória da Dental Denk e como nos tornamos referência na região.
         </p>
       </AnimatedSection>
-      <AnimatedSection delay="400ms">
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-10 py-5 rounded-xl text-lg uppercase tracking-wider shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200"
-        >
-          <MessageCircle className="w-6 h-6" />
-          Fale pelo WhatsApp
-        </a>
-      </AnimatedSection>
+
+      <div className="relative">
+        {/* Linha Horizontal (visível apenas em telas maiores) */}
+        <div className="hidden md:block absolute left-0 right-0 top-1/2 h-0.5 bg-primary/20 -translate-y-1/2" />
+        
+        {/* Container Horizontal com Scroll no Mobile */}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-4 overflow-x-auto pb-8 snap-x">
+          {timelineItems.map((item, index) => (
+            <div key={index} className="flex-1 min-w-[280px] snap-center relative">
+              <AnimatedSection delay={`${index * 150}ms`}>
+                <div className="bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-all h-full flex flex-col items-center text-center">
+                  {/* Ponto indicador na linha (Desktop) */}
+                  <div className="hidden md:flex items-center justify-center w-5 h-5 bg-primary rounded-full border-4 border-secondary absolute top-[-10px] left-1/2 -translate-x-1/2 z-10" />
+                  
+                  <span className="inline-block bg-primary text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-full mb-3">
+                    {item.year}
+                  </span>
+                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </div>
+              </AnimatedSection>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 );
