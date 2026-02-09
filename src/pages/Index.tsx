@@ -164,10 +164,6 @@ const timelineItems = [
 
 const HistorySection = () => (
   <section id="sobre" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
-    {/* Logo translúcida no background */}
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <img src={denkLogo} alt="" className="w-full h-full object-contain opacity-[0.13] p-8" />
-    </div>
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         Nossa História
@@ -314,7 +310,7 @@ const ContactSection = () => (
         <div className="rounded-xl overflow-hidden shadow-md border border-border h-80 lg:h-auto min-h-[320px]">
           <iframe
             title="Localização Dental Denk"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.0!2d-46.4614!3d-23.6677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce6f1b3b3b3b3b%3A0x0!2sR.+Jos%C3%A9+Figueiredo%2C+41+-+Vila+Assis+Brasil%2C+Mau%C3%A1+-+SP!5e0!3m2!1spt-BR!2sbr!4v1"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.5!2d-46.46278!3d-23.66838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce699f5c5b5b5b%3A0x1234567890abcdef!2sR.+Jos%C3%A9+Figueiredo%2C+41+-+Vila+Assis+Brasil%2C+Mau%C3%A1+-+SP%2C+09370-570!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
             width="100%"
             height="100%"
             style={{ border: 0 }}
