@@ -1,6 +1,6 @@
 import { Phone, MessageCircle, Menu, X, Mail, Instagram, Facebook } from "lucide-react";
 import { useState, useEffect } from "react";
-import denkLogo from "@/assets/denk logoret.png";
+import denkLogo from "@/assets/denk logorett.png";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const WHATSAPP_URL = "https://wa.me/551145135722?text=Olá! Encontrei vocês pelo site, gostaria de mais informações.";
