@@ -163,8 +163,12 @@ const timelineItems = [
 ];
 
 const HistorySection = () => (
-  <section id="sobre" className="py-20 md:py-28 bg-secondary">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="sobre" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+    {/* Logo translúcida no background */}
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <img src={denkLogo} alt="" className="w-[500px] md:w-[700px] opacity-[0.06]" />
+    </div>
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         Nossa História
       </h2>
