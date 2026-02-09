@@ -1,7 +1,10 @@
-import { Phone, MessageCircle, Menu, X } from "lucide-react";
+import { Phone, MessageCircle, Menu, X, Mail, Instagram, Facebook } from "lucide-react";
 import { useState, useEffect } from "react";
+import denkLogo from "@/assets/denk-logo.jpg";
 
 const WHATSAPP_URL = "https://wa.me/551145135722?text=Olá! Gostaria de mais informações.";
+const INSTAGRAM_URL = "https://www.instagram.com/dental.denk/";
+const FACEBOOK_URL = "https://www.facebook.com/dental.denk/?locale=pt_BR";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -30,9 +33,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-2">
-            <span className="text-xl md:text-2xl font-bold text-primary-foreground tracking-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-              Dental Denk
-            </span>
+            <img src={denkLogo} alt="Dental Denk" className="h-10 md:h-14 w-auto rounded" />
           </a>
 
           {/* Desktop Nav */}
@@ -46,6 +47,15 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
+            {/* Social icons */}
+            <div className="flex items-center gap-3">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -80,6 +90,14 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
+            <div className="flex items-center gap-4 py-2">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -155,9 +173,7 @@ const HistorySection = () => (
       </p>
 
       <div className="relative">
-        {/* Timeline line */}
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2" />
-
         <div className="space-y-12 md:space-y-0">
           {timelineItems.map((item, index) => (
             <div key={index} className={`md:flex items-center mb-12 ${index % 2 === 0 ? "" : "md:flex-row-reverse"}`}>
@@ -170,7 +186,6 @@ const HistorySection = () => (
                   <p className="text-muted-foreground">{item.description}</p>
                 </div>
               </div>
-              {/* Center dot */}
               <div className="hidden md:flex items-center justify-center w-5 h-5 bg-primary rounded-full border-4 border-secondary absolute left-1/2 -translate-x-1/2" />
               <div className="md:w-1/2" />
             </div>
@@ -237,7 +252,7 @@ const ContactSection = () => (
         Entre em Contato
       </h2>
       <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
-        Estamos prontos para atendê-lo. Venha nos visitar ou entre em contato pelo WhatsApp!
+        Estamos prontos para atendê-lo. Venha nos visitar ou entre em contato!
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -260,6 +275,23 @@ const ContactSection = () => (
                   <p className="text-muted-foreground">(11) 4513-5722</p>
                 </div>
               </div>
+              <div className="flex items-start gap-3">
+                <Mail className="w-6 h-6 text-primary mt-1" />
+                <div>
+                  <p className="font-semibold text-foreground">E-mail SAC</p>
+                  <a href="mailto:sac@dentaldenk.com.br" className="text-primary hover:underline">sac@dentaldenk.com.br</a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Instagram className="w-6 h-6 text-primary mt-1" />
+                <div>
+                  <p className="font-semibold text-foreground">Redes Sociais</p>
+                  <div className="flex items-center gap-4 mt-1">
+                    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm">Instagram</a>
+                    <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm">Facebook</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -274,11 +306,11 @@ const ContactSection = () => (
           </a>
         </div>
 
-        {/* Map */}
+        {/* Map - corrected coordinates for R. José Figueiredo, 41 - Vila Assis Brasil, Mauá */}
         <div className="rounded-xl overflow-hidden shadow-md border border-border h-80 lg:h-auto min-h-[320px]">
           <iframe
             title="Localização Dental Denk"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.5!2d-46.46!3d-23.67!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQwJzEyLjAiUyA0NsKwMjcnMzYuMCJX!5e0!3m2!1spt-BR!2sbr!4v1"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.0!2d-46.4614!3d-23.6677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce6f1b3b3b3b3b%3A0x0!2sR.+Jos%C3%A9+Figueiredo%2C+41+-+Vila+Assis+Brasil%2C+Mau%C3%A1+-+SP!5e0!3m2!1spt-BR!2sbr!4v1"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -296,9 +328,15 @@ const Footer = () => (
   <footer className="bg-primary py-12">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center">
-        <span className="text-2xl font-bold text-primary-foreground" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-          Dental Denk
-        </span>
+        <img src={denkLogo} alt="Dental Denk" className="h-12 w-auto rounded mx-auto mb-3" />
+        <div className="flex items-center justify-center gap-4 mb-3">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors" aria-label="Instagram">
+            <Instagram className="w-5 h-5" />
+          </a>
+          <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors" aria-label="Facebook">
+            <Facebook className="w-5 h-5" />
+          </a>
+        </div>
         <p className="text-primary-foreground/60 mt-3 text-sm">
           R. José Figueiredo, 41 - Vila Assis Brasil, Mauá - SP | (11) 4513-5722
         </p>
