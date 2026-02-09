@@ -310,7 +310,7 @@ const ContactSection = () => (
         <div className="rounded-xl overflow-hidden shadow-md border border-border h-80 lg:h-auto min-h-[320px]">
           <iframe
             title="Localização Dental Denk"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.5!2d-46.46278!3d-23.66838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce699f5c5b5b5b%3A0x1234567890abcdef!2sR.+Jos%C3%A9+Figueiredo%2C+41+-+Vila+Assis+Brasil%2C+Mau%C3%A1+-+SP%2C+09370-570!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d913.6!2d-46.4610813!3d-23.6785717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce6bdf7eeae035%3A0x64c74af58885c6b0!2sR.+Jos%C3%A9+Figueiredo%2C+99-41+-+Vila+Assis+Brasil%2C+Mau%C3%A1+-+SP%2C+09370-660!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
             width="100%"
             height="100%"
             style={{ border: 0 }}
