@@ -26,8 +26,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-header shadow-lg" : "bg-header"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-header ${
+        scrolled ? "shadow-md border-b border-border" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,16 +41,16 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-header-foreground/80 hover:text-header-foreground font-medium text-sm uppercase tracking-wider transition-colors"
+                className="text-header-foreground/70 hover:text-header-foreground font-medium text-sm uppercase tracking-wider transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <div className="flex items-center gap-3">
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/80 hover:text-header-foreground transition-colors" aria-label="Instagram">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/70 hover:text-header-foreground transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/80 hover:text-header-foreground transition-colors" aria-label="Facebook">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/70 hover:text-header-foreground transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -58,7 +58,7 @@ const Header = () => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-header font-bold px-6 py-3 rounded-lg border-2 border-white hover:bg-header-foreground hover:scale-105 transition-all duration-200 text-sm uppercase tracking-wider shadow-md"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-lg hover:bg-primary/90 hover:scale-105 transition-all duration-200 text-sm uppercase tracking-wider shadow-md"
             >
               <MessageCircle className="w-5 h-5" />
               Fale Conosco
@@ -81,16 +81,16 @@ const Header = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-header-foreground/80 hover:text-header-foreground font-medium text-sm uppercase tracking-wider py-2"
+                className="text-header-foreground/70 hover:text-header-foreground font-medium text-sm uppercase tracking-wider py-2"
               >
                 {item.label}
               </a>
             ))}
             <div className="flex items-center gap-4 py-2">
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/80 hover:text-header-foreground transition-colors" aria-label="Instagram">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/70 hover:text-header-foreground transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/80 hover:text-header-foreground transition-colors" aria-label="Facebook">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/70 hover:text-header-foreground transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -98,7 +98,7 @@ const Header = () => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white text-header font-bold px-6 py-3 rounded-lg border-2 border-white text-sm uppercase tracking-wider shadow-md mt-2"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-lg text-sm uppercase tracking-wider shadow-md mt-2"
             >
               <MessageCircle className="w-5 h-5" />
               Fale Conosco
@@ -110,19 +110,34 @@ const Header = () => {
   );
 };
 
+const WaveDivider = () => (
+  <div className="absolute bottom-0 left-0 right-0 leading-none">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[100px] block text-section-blue">
+      <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z" fill="currentColor" />
+    </svg>
+  </div>
+);
+
 const HeroSection = () => (
-  <section id="inicio" className="relative bg-[#0f2033] min-h-[80vh] flex items-center pt-20">
-    <div className="absolute inset-0 bg-gradient-to-br from-[#0f2033] via-[#132a42] to-[#0a1724] opacity-90" />
-    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
+  <section id="inicio" className="relative bg-navy min-h-[80vh] flex items-center pt-20 overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10" />
+    {/* Watermark logo */}
+    <img
+      src={denkLogo}
+      alt=""
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] lg:w-[700px] opacity-[0.07] pointer-events-none select-none"
+      aria-hidden="true"
+    />
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-32 pb-28 md:pb-40 text-center z-10">
       <AnimatedSection>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-primary-foreground mb-6 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           Se o assunto é dente,{" "}
-          <span className="text-[#4da3ff]">Denk!</span>
+          <span className="text-sky-blue">Denk!</span>
         </h1>
       </AnimatedSection>
       <AnimatedSection delay="200ms">
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Referência em produtos odontológicos no ABC paulista desde 1997. 
+        <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Referência em produtos odontológicos no ABC paulista desde 1997.
           Tradição, qualidade e compromisso com o profissional da odontologia.
         </p>
       </AnimatedSection>
@@ -131,13 +146,14 @@ const HeroSection = () => (
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-10 py-5 rounded-xl text-lg uppercase tracking-wider shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200"
+          className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-10 py-5 rounded-xl text-lg uppercase tracking-wider shadow-[0_0_30px_rgba(37,211,102,0.4)] hover:shadow-[0_0_40px_rgba(37,211,102,0.6)] hover:scale-105 transition-all duration-200"
         >
           <MessageCircle className="w-6 h-6" />
           Fale pelo WhatsApp
         </a>
       </AnimatedSection>
     </div>
+    <WaveDivider />
   </section>
 );
 
@@ -165,35 +181,35 @@ const timelineItems = [
 ];
 
 const HistorySection = () => (
-  <section id="sobre" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+  <section id="sobre" className="py-20 md:py-28 bg-section-blue relative overflow-hidden">
     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedSection>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-section-blue-foreground text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           Nossa História
         </h2>
-        <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
+        <p className="text-section-blue-foreground/70 text-center max-w-xl mx-auto mb-16">
           Conheça a trajetória da Dental Denk e como nos tornamos referência na região.
         </p>
       </AnimatedSection>
 
       <div className="relative pt-8">
-        {/* Linha horizontal conectora */}
-        <div className="hidden md:block absolute left-[calc(12.5%)] right-[calc(12.5%)] top-8 h-0.5 bg-primary/30" />
-        
+        {/* Horizontal connector line */}
+        <div className="hidden md:block absolute left-[calc(12.5%)] right-[calc(12.5%)] top-8 h-0.5 bg-sky-blue/40" />
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {timelineItems.map((item, index) => (
             <div key={index} className="relative flex flex-col items-center">
-              {/* Ponto na linha */}
-              <div className="hidden md:block w-4 h-4 bg-primary rounded-full border-4 border-secondary shadow-md mb-6 relative z-10" />
-              
+              <div className="hidden md:block w-4 h-4 bg-sky-blue rounded-full border-4 border-section-blue shadow-md mb-6 relative z-10" />
+
               <AnimatedSection delay={`${index * 150}ms`}>
-                <div className="bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-2xl transition-all duration-300 h-full flex flex-col items-center text-center"
-                  style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)' }}
+                <div
+                  className="bg-card rounded-xl p-6 shadow-lg border border-card/20 hover:shadow-2xl transition-all duration-300 h-full flex flex-col items-center text-center"
+                  style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.15), 0 1px 6px rgba(0,0,0,0.08)' }}
                 >
-                  <span className="inline-block bg-primary text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-full mb-3">
+                  <span className="inline-block bg-navy text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-full mb-3">
                     {item.year}
                   </span>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-card-foreground mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                 </div>
               </AnimatedSection>
@@ -229,7 +245,7 @@ const differentials = [
 ];
 
 const DifferentialsSection = () => (
-  <section id="diferenciais" className="py-20 md:py-28 bg-background">
+  <section id="diferenciais" className="py-20 md:py-28 bg-secondary">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedSection>
         <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -245,7 +261,7 @@ const DifferentialsSection = () => (
           <AnimatedSection key={index} delay={`${index * 100}ms`}>
             <div className="bg-card rounded-xl p-8 text-center shadow-md border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <span className="text-5xl mb-5 block">{item.icon}</span>
-              <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
+              <h3 className="text-lg font-bold text-card-foreground mb-3">{item.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
             </div>
           </AnimatedSection>
@@ -256,50 +272,50 @@ const DifferentialsSection = () => (
 );
 
 const ContactSection = () => (
-  <section id="contato" className="py-20 md:py-28 bg-secondary">
+  <section id="contato" className="py-20 md:py-28 bg-section-blue">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedSection>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-section-blue-foreground text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           Entre em Contato
         </h2>
-        <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
+        <p className="text-section-blue-foreground/70 text-center max-w-xl mx-auto mb-16">
           Estamos prontos para atendê-lo. Venha nos visitar ou entre em contato!
         </p>
       </AnimatedSection>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="space-y-8">
-          <div className="bg-card rounded-xl p-8 shadow-md border border-border">
-            <h3 className="text-xl font-bold text-foreground mb-4">Informações</h3>
+          <div className="bg-card rounded-xl p-8 shadow-lg border border-card/20">
+            <h3 className="text-xl font-bold text-card-foreground mb-4">Informações</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <span className="text-2xl">📍</span>
                 <div>
-                  <p className="font-semibold text-foreground">Endereço</p>
+                  <p className="font-semibold text-card-foreground">Endereço</p>
                   <p className="text-muted-foreground">R. José Figueiredo, 41 - Vila Assis Brasil, Mauá - SP</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="w-6 h-6 text-primary mt-1" />
+                <Phone className="w-6 h-6 text-sky-blue mt-1" />
                 <div>
-                  <p className="font-semibold text-foreground">Telefone / WhatsApp</p>
+                  <p className="font-semibold text-card-foreground">Telefone / WhatsApp</p>
                   <p className="text-muted-foreground">(11) 4513-5722</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-6 h-6 text-primary mt-1" />
+                <Mail className="w-6 h-6 text-sky-blue mt-1" />
                 <div>
-                  <p className="font-semibold text-foreground">E-mail SAC</p>
-                  <a href="mailto:sac@dentaldenk.com.br" className="text-primary hover:underline">sac@dentaldenk.com.br</a>
+                  <p className="font-semibold text-card-foreground">E-mail SAC</p>
+                  <a href="mailto:sac@dentaldenk.com.br" className="text-sky-blue hover:underline">sac@dentaldenk.com.br</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Instagram className="w-6 h-6 text-primary mt-1" />
+                <Instagram className="w-6 h-6 text-sky-blue mt-1" />
                 <div>
-                  <p className="font-semibold text-foreground">Redes Sociais</p>
+                  <p className="font-semibold text-card-foreground">Redes Sociais</p>
                   <div className="flex items-center gap-4 mt-1">
-                    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm">Instagram</a>
-                    <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm">Facebook</a>
+                    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-sky-blue hover:underline text-sm">Instagram</a>
+                    <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-sky-blue hover:underline text-sm">Facebook</a>
                   </div>
                 </div>
               </div>
@@ -310,14 +326,14 @@ const ContactSection = () => (
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-10 py-5 rounded-xl text-lg uppercase tracking-wider shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200"
+            className="w-full inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-10 py-5 rounded-xl text-lg uppercase tracking-wider shadow-[0_0_30px_rgba(37,211,102,0.4)] hover:shadow-[0_0_40px_rgba(37,211,102,0.6)] hover:scale-105 transition-all duration-200"
           >
             <MessageCircle className="w-6 h-6" />
             Fale Conosco pelo WhatsApp
           </a>
         </div>
 
-        <div className="rounded-xl overflow-hidden shadow-md border border-border h-80 lg:h-auto min-h-[320px]">
+        <div className="rounded-xl overflow-hidden shadow-lg border border-card/20 h-80 lg:h-auto min-h-[320px]">
           <iframe
             title="Localização Dental Denk"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d913.6!2d-46.4610813!3d-23.6785717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce6bdf7eeae035%3A0x64c74af58885c6b0!2sR.+Jos%C3%A9+Figueiredo%2C+99-41+-+Vila+Assis+Brasil%2C+Mau%C3%A1+-+SP%2C+09370-660!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
@@ -335,22 +351,22 @@ const ContactSection = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-primary py-12">
+  <footer className="bg-navy py-12">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center">
         <img src={denkLogo} alt="Dental Denk" className="h-12 w-auto mx-auto mb-3" />
         <div className="flex items-center justify-center gap-4 mb-3">
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors" aria-label="Instagram">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/60 hover:text-primary-foreground transition-colors" aria-label="Instagram">
             <Instagram className="w-5 h-5" />
           </a>
-          <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors" aria-label="Facebook">
+          <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/60 hover:text-primary-foreground transition-colors" aria-label="Facebook">
             <Facebook className="w-5 h-5" />
           </a>
         </div>
-        <p className="text-primary-foreground/60 mt-3 text-sm">
+        <p className="text-primary-foreground/50 mt-3 text-sm">
           R. José Figueiredo, 41 - Vila Assis Brasil, Mauá - SP | (11) 4513-5722
         </p>
-        <p className="text-primary-foreground/40 mt-4 text-xs">
+        <p className="text-primary-foreground/30 mt-4 text-xs">
           © {new Date().getFullYear()} Dental Denk. Todos os direitos reservados.
         </p>
       </div>
@@ -363,7 +379,7 @@ const FloatingWhatsApp = () => (
     href={WHATSAPP_URL}
     target="_blank"
     rel="noopener noreferrer"
-    className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-200"
+    className="fixed bottom-6 right-6 z-50 bg-accent hover:bg-accent/90 text-accent-foreground p-4 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:shadow-[0_0_30px_rgba(37,211,102,0.7)] hover:scale-110 transition-all duration-200"
     aria-label="Fale conosco pelo WhatsApp"
   >
     <MessageCircle className="w-7 h-7" />
