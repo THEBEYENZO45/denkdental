@@ -176,21 +176,25 @@ const HistorySection = () => (
         </p>
       </AnimatedSection>
 
-      <div className="relative">
-        <div className="hidden md:block absolute left-0 right-0 top-1/2 h-0.5 bg-primary/20 -translate-y-1/2" />
+      <div className="relative pt-8">
+        {/* Linha horizontal conectora */}
+        <div className="hidden md:block absolute left-[calc(12.5%)] right-[calc(12.5%)] top-8 h-0.5 bg-primary/30" />
         
-        <div className="flex flex-col md:flex-row gap-8 md:gap-4 overflow-x-auto pb-8 snap-x">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {timelineItems.map((item, index) => (
-            <div key={index} className="flex-1 min-w-[280px] snap-center relative">
+            <div key={index} className="relative flex flex-col items-center">
+              {/* Ponto na linha */}
+              <div className="hidden md:block w-4 h-4 bg-primary rounded-full border-4 border-secondary shadow-md mb-6 relative z-10" />
+              
               <AnimatedSection delay={`${index * 150}ms`}>
-                <div className="bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-all h-full flex flex-col items-center text-center">
-                  <div className="hidden md:flex items-center justify-center w-5 h-5 bg-primary rounded-full border-4 border-secondary absolute top-[-10px] left-1/2 -translate-x-1/2 z-10" />
-                  
+                <div className="bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-2xl transition-all duration-300 h-full flex flex-col items-center text-center"
+                  style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04)' }}
+                >
                   <span className="inline-block bg-primary text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-full mb-3">
                     {item.year}
                   </span>
                   <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                 </div>
               </AnimatedSection>
             </div>
