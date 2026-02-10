@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-primary shadow-lg" : "bg-primary"
+        scrolled ? "bg-header shadow-lg" : "bg-header"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,16 +41,16 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-primary-foreground/80 hover:text-primary-foreground font-medium text-sm uppercase tracking-wider transition-colors"
+                className="text-header-foreground/80 hover:text-header-foreground font-medium text-sm uppercase tracking-wider transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <div className="flex items-center gap-3">
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Instagram">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/80 hover:text-header-foreground transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Facebook">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/80 hover:text-header-foreground transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -58,7 +58,7 @@ const Header = () => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-primary font-bold px-6 py-3 rounded-lg border-2 border-white hover:bg-primary-foreground hover:scale-105 transition-all duration-200 text-sm uppercase tracking-wider shadow-md"
+              className="inline-flex items-center gap-2 bg-white text-header font-bold px-6 py-3 rounded-lg border-2 border-white hover:bg-header-foreground hover:scale-105 transition-all duration-200 text-sm uppercase tracking-wider shadow-md"
             >
               <MessageCircle className="w-5 h-5" />
               Fale Conosco
@@ -67,7 +67,7 @@ const Header = () => {
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-primary-foreground p-2"
+            className="md:hidden text-header-foreground p-2"
             aria-label="Menu"
           >
             {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -81,16 +81,16 @@ const Header = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-primary-foreground/80 hover:text-primary-foreground font-medium text-sm uppercase tracking-wider py-2"
+                className="text-header-foreground/80 hover:text-header-foreground font-medium text-sm uppercase tracking-wider py-2"
               >
                 {item.label}
               </a>
             ))}
             <div className="flex items-center gap-4 py-2">
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Instagram">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/80 hover:text-header-foreground transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Facebook">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-header-foreground/80 hover:text-header-foreground transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -98,7 +98,7 @@ const Header = () => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary font-bold px-6 py-3 rounded-lg border-2 border-white text-sm uppercase tracking-wider shadow-md mt-2"
+              className="inline-flex items-center justify-center gap-2 bg-white text-header font-bold px-6 py-3 rounded-lg border-2 border-white text-sm uppercase tracking-wider shadow-md mt-2"
             >
               <MessageCircle className="w-5 h-5" />
               Fale Conosco
