@@ -1,6 +1,6 @@
 import { Phone, MessageCircle, Menu, X, Mail, Instagram, Facebook } from "lucide-react";
 import { useState, useEffect } from "react";
-import denkLogo from "@/assets/denk logorett.png";
+import denkLogo from "@/assets/denk_logorett.png";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const WHATSAPP_URL = "https://wa.me/551145135722?text=Olá! Encontrei vocês pelo site, gostaria de mais informações.";
@@ -32,12 +32,10 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
           <a href="#inicio" className="flex items-center gap-2">
-            <img src={denkLogo} alt="Dental Denk" className="h-10 md:h-14 w-auto rounded" />
+            <img src={denkLogo} alt="Dental Denk" className="h-10 md:h-14 w-auto" />
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
@@ -48,7 +46,6 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            {/* Social icons */}
             <div className="flex items-center gap-3">
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
@@ -68,7 +65,6 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden text-primary-foreground p-2"
@@ -78,7 +74,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Nav */}
         {menuOpen && (
           <nav className="md:hidden pb-4 flex flex-col gap-3">
             {navItems.map((item) => (
@@ -115,42 +110,33 @@ const Header = () => {
   );
 };
 
-const HistorySection = () => (
-  <section id="sobre" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
-    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+const HeroSection = () => (
+  <section id="inicio" className="relative bg-[#0f2033] min-h-[80vh] flex items-center pt-20">
+    <div className="absolute inset-0 bg-gradient-to-br from-[#0f2033] via-[#132a42] to-[#0a1724] opacity-90" />
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
       <AnimatedSection>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-          Nossa História
-        </h2>
-        <p className="text-muted-foreground text-center max-w-xl mx-auto mb-16">
-          Conheça a trajetória da Dental Denk e como nos tornamos referência na região.
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Se o assunto é dente,{" "}
+          <span className="text-[#4da3ff]">Denk!</span>
+        </h1>
+      </AnimatedSection>
+      <AnimatedSection delay="200ms">
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Referência em produtos odontológicos no ABC paulista desde 1997. 
+          Tradição, qualidade e compromisso com o profissional da odontologia.
         </p>
       </AnimatedSection>
-
-      <div className="relative">
-        {/* Linha Horizontal (visível apenas em telas maiores) */}
-        <div className="hidden md:block absolute left-0 right-0 top-1/2 h-0.5 bg-primary/20 -translate-y-1/2" />
-        
-        {/* Container Horizontal com Scroll no Mobile */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-4 overflow-x-auto pb-8 snap-x">
-          {timelineItems.map((item, index) => (
-            <div key={index} className="flex-1 min-w-[280px] snap-center relative">
-              <AnimatedSection delay={`${index * 150}ms`}>
-                <div className="bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-all h-full flex flex-col items-center text-center">
-                  {/* Ponto indicador na linha (Desktop) */}
-                  <div className="hidden md:flex items-center justify-center w-5 h-5 bg-primary rounded-full border-4 border-secondary absolute top-[-10px] left-1/2 -translate-x-1/2 z-10" />
-                  
-                  <span className="inline-block bg-primary text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-full mb-3">
-                    {item.year}
-                  </span>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </div>
-              </AnimatedSection>
-            </div>
-          ))}
-        </div>
-      </div>
+      <AnimatedSection delay="400ms">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-10 py-5 rounded-xl text-lg uppercase tracking-wider shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200"
+        >
+          <MessageCircle className="w-6 h-6" />
+          Fale pelo WhatsApp
+        </a>
+      </AnimatedSection>
     </div>
   </section>
 );
@@ -191,23 +177,22 @@ const HistorySection = () => (
       </AnimatedSection>
 
       <div className="relative">
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2" />
-        <div className="space-y-12 md:space-y-0">
+        <div className="hidden md:block absolute left-0 right-0 top-1/2 h-0.5 bg-primary/20 -translate-y-1/2" />
+        
+        <div className="flex flex-col md:flex-row gap-8 md:gap-4 overflow-x-auto pb-8 snap-x">
           {timelineItems.map((item, index) => (
-            <div key={index} className={`md:flex items-center mb-12 ${index % 2 === 0 ? "" : "md:flex-row-reverse"}`}>
-            <AnimatedSection delay={`${index * 150}ms`}>
-              <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
-                <div className="bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow">
+            <div key={index} className="flex-1 min-w-[280px] snap-center relative">
+              <AnimatedSection delay={`${index * 150}ms`}>
+                <div className="bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-all h-full flex flex-col items-center text-center">
+                  <div className="hidden md:flex items-center justify-center w-5 h-5 bg-primary rounded-full border-4 border-secondary absolute top-[-10px] left-1/2 -translate-x-1/2 z-10" />
+                  
                   <span className="inline-block bg-primary text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-full mb-3">
                     {item.year}
                   </span>
                   <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
                 </div>
-              </div>
-              <div className="hidden md:flex items-center justify-center w-5 h-5 bg-primary rounded-full border-4 border-secondary absolute left-1/2 -translate-x-1/2" />
-              <div className="md:w-1/2" />
-            </AnimatedSection>
+              </AnimatedSection>
             </div>
           ))}
         </div>
@@ -279,7 +264,6 @@ const ContactSection = () => (
       </AnimatedSection>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Info */}
         <div className="space-y-8">
           <div className="bg-card rounded-xl p-8 shadow-md border border-border">
             <h3 className="text-xl font-bold text-foreground mb-4">Informações</h3>
@@ -329,7 +313,6 @@ const ContactSection = () => (
           </a>
         </div>
 
-        {/* Map - corrected coordinates for R. José Figueiredo, 41 - Vila Assis Brasil, Mauá */}
         <div className="rounded-xl overflow-hidden shadow-md border border-border h-80 lg:h-auto min-h-[320px]">
           <iframe
             title="Localização Dental Denk"
@@ -351,7 +334,7 @@ const Footer = () => (
   <footer className="bg-primary py-12">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center">
-        <img src={denkLogo} alt="Dental Denk" className="h-12 w-auto rounded mx-auto mb-3" />
+        <img src={denkLogo} alt="Dental Denk" className="h-12 w-auto mx-auto mb-3" />
         <div className="flex items-center justify-center gap-4 mb-3">
           <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors" aria-label="Instagram">
             <Instagram className="w-5 h-5" />
